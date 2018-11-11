@@ -20,35 +20,11 @@ module.exports = class CfeCdrPlugin extends CdrPlugin {
 					longDescription: 'Main BAT.',
 					filePath: '/main_layout.lyt'
 				},
-				appctrl: {
+				hk: {
 					type: CdrPlugin.ContentType.PANEL,
-					shortDescription: 'Application Control',
-					longDescription: 'Application start, stop, restart, and reload.',
-					filePath: '/appctrl.pug'
-				},
-				cdh: {
-					type: CdrPlugin.ContentType.PANEL,
-					shortDescription: 'Command and Data Handling',
-					longDescription: 'Command counters.',
-					filePath: '/cdh.pug'
-				},
-        data: {
-          type: CdrPlugin.ContentType.PANEL,
-          shortDescription: 'Application Data',
-          longDescription: 'Application Data.',
-          filePath: '/data.pug'
-        },
-        plot: {
-          type: CdrPlugin.ContentType.PANEL,
-          shortDescription: 'Application DataPlot',
-          longDescription: 'Application DataPlot.',
-          filePath: '/plot.pug'
-        },
-				version: {
-					type: CdrPlugin.ContentType.PANEL,
-					shortDescription: 'Version',
-					longDescription: 'Core versions.',
-					filePath: '/version.pug'
+					shortDescription: 'Battery Housekeeping',
+					longDescription: 'Battery Housekeeping',
+					filePath: '/hk.pug'
 				}
       }
     };
@@ -56,7 +32,3 @@ module.exports = class CfeCdrPlugin extends CdrPlugin {
     return result;
   }
 };
-
-//var plugin = new CfeCdrPlugin();
-
-//let CfeCdrPlugin = new class extends CdrPlugin {

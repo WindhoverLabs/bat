@@ -5,6 +5,7 @@ add_airliner_app_def(bat
         ${CMAKE_CURRENT_SOURCE_DIR}/../src/bat_app.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/../src/bat_app.h
         ${CMAKE_CURRENT_SOURCE_DIR}/../src/bat_config_utils.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/../src/bat_symbols.c
         ${CMAKE_CURRENT_SOURCE_DIR}/../src/bat_events.h
         ${CMAKE_CURRENT_SOURCE_DIR}/../src/bat_msg.h
         ${CMAKE_CURRENT_SOURCE_DIR}/../src/bat_tbldefs.h
@@ -18,6 +19,8 @@ add_airliner_app_def(bat
 
     COMMANDER_PLUGIN
         ${CMAKE_CURRENT_SOURCE_DIR}/../../cdr
+    MSG_OVERRIDES 
+        ${CMAKE_CURRENT_SOURCE_DIR}/bat_msg_overrides.json
 )
 
 add_airliner_app_unit_test(bat-ut

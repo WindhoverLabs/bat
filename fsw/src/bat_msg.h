@@ -152,9 +152,17 @@ typedef struct
         \brief Count of failed commands */
     uint8              usCmdErrCnt; 
 
-    PX4_ActuatorControlsMsg_t ActuatorControls0;
-    PX4_ActuatorArmedMsg_t    ActuatorArmed;
-    PX4_BatteryStatusMsg_t    BatteryStatusMsg;
+	uint64 			   Timestamp;
+	float              Voltage;					/* V */
+	float              VoltageFiltered;			/* V */
+	float              Current;					/* A */
+	float              CurrentFiltered;			/* A */
+	float              Discharged;				/* mAh */
+	float              Remaining;
+	float              Scale;
+	int32              CellCount;
+	boolean            Connected;
+	PX4_BatteryWarningSeverity_t Warning;
 } BAT_HkTlm_t;
 
 

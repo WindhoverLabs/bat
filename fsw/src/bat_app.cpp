@@ -407,6 +407,7 @@ void BAT::ProcessAppCmds(CFE_SB_Msg_t* MsgPtr)
 
 void BAT::ReportHousekeeping()
 {
+    OS_MutSemTake(Mutex);
 	HkTlm.Timestamp = BatteryStatusMsg.Timestamp;
 	HkTlm.Voltage = BatteryStatusMsg.Voltage;
 	HkTlm.VoltageFiltered = BatteryStatusMsg.VoltageFiltered;
@@ -418,6 +419,7 @@ void BAT::ReportHousekeeping()
 	HkTlm.CellCount = BatteryStatusMsg.CellCount;
 	HkTlm.Connected = BatteryStatusMsg.Connected;
 	HkTlm.Warning = BatteryStatusMsg.Warning;
+    OS_MutSemGive(Mutex);
 
     CFE_SB_TimeStampMsg((CFE_SB_Msg_t*)&HkTlm);
     CFE_SB_SendMsg((CFE_SB_Msg_t*)&HkTlm);

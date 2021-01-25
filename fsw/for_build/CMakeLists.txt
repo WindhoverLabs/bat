@@ -14,17 +14,18 @@ add_airliner_app_def(bat
     INCLUDES
         ${CMAKE_CURRENT_SOURCE_DIR}/../src/
 
-    USER_DOCS   ${CMAKE_CURRENT_SOURCE_DIR}/user_doxy.in
     DESIGN_DOCS ${CMAKE_CURRENT_SOURCE_DIR}/detail_doxy.in
-
-    COMMANDER_PLUGIN
-        ${CMAKE_CURRENT_SOURCE_DIR}/../../cdr
-    MSG_OVERRIDES 
-        ${CMAKE_CURRENT_SOURCE_DIR}/bat_msg_overrides.json
+    
+    REFERENCE_CONFIG
+        ${PROJECT_SOURCE_DIR}/apps/bat/fsw/mission_inc
+        ${PROJECT_SOURCE_DIR}/apps/bat/fsw/platform_inc
 )
 
 add_airliner_app_unit_test(bat-ut
     UTASSERT
+    NO_HELGRIND
+    NO_MASSIF
+
     SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/../unit_test/bat_app_test.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/../unit_test/bat_app_test.h
@@ -53,4 +54,7 @@ add_airliner_app_unit_test(bat-ut
 
     VALGRIND_SUPPRESSION_FILE
         ${CMAKE_CURRENT_SOURCE_DIR}/../unit_test/valgrind.supp
+        
+    REFERENCE_CUSTOM_SOURCE
+        ${CMAKE_CURRENT_SOURCE_DIR}/../tables/bat_config.c
 )

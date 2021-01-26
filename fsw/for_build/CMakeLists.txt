@@ -1,5 +1,5 @@
 
-add_airliner_app_def(bat
+buildliner_add_app_def(bat
     FILE BAT
     SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/../src/bat_app.cpp
@@ -21,7 +21,7 @@ add_airliner_app_def(bat
         ${PROJECT_SOURCE_DIR}/apps/bat/fsw/platform_inc
 )
 
-add_airliner_app_unit_test(bat-ut
+buildliner_add_app_unit_test(bat-ut
     UTASSERT
     NO_HELGRIND
     NO_MASSIF
